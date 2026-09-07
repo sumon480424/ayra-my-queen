@@ -4,10 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Y R A ♡</title>
+<title>A Y R A ♡ — My Queen</title>
+
+<!-- Messenger / Facebook Link Preview -->
+<meta property="og:title" content="A Y R A ♡ — My Queen 👑">
+<meta property="og:description" content="A little world made especially for you. 100 reasons, countless feelings, and one very special Queen. 🤍">
+<meta property="og:image" content="https://sumon480424.github.io/ayra-my-queen/ayra-preview.png">
+<meta property="og:url" content="https://sumon480424.github.io/ayra-my-queen/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Y R A ♡ — My Queen 👑">
+<meta name="twitter:description" content="This little world is made only for you. 🤍">
+<meta name="twitter:image" content="https://sumon480424.github.io/ayra-my-queen/ayra-preview.png">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -15,17 +26,13 @@
     font-family:'Segoe UI',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     background:linear-gradient(135deg,#fff8f8,#fdf3f3);
     color:#333;
     overflow-x:hidden;
 }
-
-/* HERO */
 
 .hero{
     min-height:100vh;
@@ -47,14 +54,8 @@ body{
 }
 
 @keyframes cardAppear{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 .card img{
@@ -64,9 +65,7 @@ body{
     display:block;
 }
 
-.content{
-    padding:30px;
-}
+.content{padding:30px;}
 
 h1{
     font-size:36px;
@@ -86,8 +85,6 @@ h1{
     color:#666;
 }
 
-/* BUTTON */
-
 button{
     margin-top:25px;
     padding:15px 25px;
@@ -105,8 +102,6 @@ button:hover{
     box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-/* COUNTDOWN */
-
 #countdown{
     position:fixed;
     inset:0;
@@ -119,8 +114,6 @@ button:hover{
     font-weight:300;
 }
 
-/* MESSAGE */
-
 #message{
     display:none;
     margin-top:25px;
@@ -132,17 +125,9 @@ button:hover{
 }
 
 @keyframes messageAppear{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
 }
-
-/* FLOATING HEARTS */
 
 .heart{
     position:fixed;
@@ -160,8 +145,6 @@ button:hover{
     }
 }
 
-/* CONFETTI */
-
 .confetti{
     position:fixed;
     width:10px;
@@ -178,8 +161,6 @@ button:hover{
         opacity:0;
     }
 }
-
-/* SECTIONS */
 
 .section{
     max-width:700px;
@@ -200,8 +181,6 @@ button:hover{
     margin-bottom:30px;
 }
 
-/* REASONS */
-
 .reasons{
     background:white;
     border-radius:25px;
@@ -212,10 +191,7 @@ button:hover{
     scroll-behavior:smooth;
 }
 
-.reasons::-webkit-scrollbar{
-    width:6px;
-}
-
+.reasons::-webkit-scrollbar{width:6px;}
 .reasons::-webkit-scrollbar-thumb{
     background:#ddd;
     border-radius:20px;
@@ -229,29 +205,19 @@ button:hover{
     transition:.3s ease;
 }
 
-.reason:last-child{
-    border-bottom:none;
-}
+.reason:last-child{border-bottom:none;}
 
 .reason:hover{
     padding-left:10px;
     color:#222;
 }
 
-/* SECRET */
-
-.secret{
-    text-align:center;
-}
+.secret{text-align:center;}
 
 .secret button{
     background:white;
     color:#333;
     border:1px solid #ddd;
-}
-
-.secret button:hover{
-    background:#fafafa;
 }
 
 #secretBox{
@@ -265,8 +231,6 @@ button:hover{
     animation:messageAppear .8s ease;
 }
 
-/* FOOTER */
-
 footer{
     text-align:center;
     padding:40px;
@@ -275,82 +239,38 @@ footer{
     letter-spacing:3px;
 }
 
-/* MOBILE */
-
 @media(max-width:500px){
-
-    .hero{
-        padding:15px;
-    }
-
-    .card{
-        border-radius:25px;
-    }
-
-    .card img{
-        height:470px;
-    }
-
-    .content{
-        padding:25px 20px;
-    }
-
-    h1{
-        font-size:31px;
-        letter-spacing:5px;
-    }
-
-    .section{
-        padding:65px 15px;
-    }
-
-    .section h2{
-        font-size:27px;
-    }
-
-    .reasons{
-        padding:15px 18px;
-        max-height:500px;
-    }
-
-    .reason{
-        font-size:14px;
-    }
-
+    .hero{padding:15px;}
+    .card{border-radius:25px;}
+    .card img{height:470px;}
+    .content{padding:25px 20px;}
+    h1{font-size:31px;letter-spacing:5px;}
+    .section{padding:65px 15px;}
+    .section h2{font-size:27px;}
+    .reasons{padding:15px 18px;max-height:500px;}
+    .reason{font-size:14px;}
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- MUSIC -->
-
 <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-
-<!-- COUNTDOWN -->
-
 <div id="countdown">3</div>
 
-
-<!-- HERO -->
-
 <section class="hero">
-
     <div class="card">
 
-        <img src="YOUR_AYRA_PHOTO_HERE.jpg" alt="Ayra">
+        <img src="ayra.jpg" alt="Ayra">
 
         <div class="content">
 
             <h1>A Y R A ♡</h1>
 
-            <p class="subtitle">
-                My Queen 👑
-            </p>
+            <p class="subtitle">My Queen 👑</p>
 
             <p class="quote">
                 This page has only one purpose...
@@ -362,59 +282,36 @@ footer{
                 ✨ Tap For Surprise ✨
             </button>
 
-
-            <!-- SURPRISE MESSAGE -->
-
             <div id="message">
-
                 <h3>Hey Ayra ✨</h3>
 
                 <p>
                     Maybe today wasn't perfect.
-
                     <br><br>
-
                     But I hope this little page reminds you that
                     you are special, appreciated and deserve happiness.
-
                     <br><br>
-
                     <b>Smile, Queen 👑🤍</b>
                 </p>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
-
-
-<!-- 100 REASONS -->
 
 <section class="section">
 
-    <h2>
-        100 Reasons Why Ayra Is Special
-    </h2>
+    <h2>100 Reasons Why Ayra Is Special</h2>
 
-    <p>
-        Because one reason wasn't enough. ♡
-    </p>
+    <p>Because one reason wasn't enough. ♡</p>
 
     <div class="reasons" id="reasons"></div>
 
 </section>
 
-
-<!-- SECRET MESSAGE -->
-
 <section class="section secret">
 
-    <h2>
-        One Last Thing 💌
-    </h2>
+    <h2>One Last Thing 💌</h2>
 
     <button onclick="openSecret()">
         Open Secret Message
@@ -446,147 +343,108 @@ footer{
 
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
     MADE WITH ♡ FOR AYRA
 </footer>
 
-
 <script>
-
-/* ================================
-   SURPRISE
-================================ */
 
 function startSurprise(){
 
-    const music = document.getElementById("music");
+    const music=document.getElementById("music");
 
     music.play().catch(function(){
         console.log("Music could not autoplay.");
     });
 
-    const countdown = document.getElementById("countdown");
+    const countdown=document.getElementById("countdown");
 
-    countdown.style.display = "flex";
+    countdown.style.display="flex";
 
-    let count = 3;
+    let count=3;
+    countdown.innerText=count;
 
-    countdown.innerText = count;
-
-    let timer = setInterval(function(){
+    let timer=setInterval(function(){
 
         count--;
 
-        if(count > 0){
-
-            countdown.innerText = count;
-
+        if(count>0){
+            countdown.innerText=count;
         }else{
 
             clearInterval(timer);
 
-            countdown.style.display = "none";
+            countdown.style.display="none";
 
-            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.display="block";
 
             hearts();
-
             confetti();
-
         }
 
     },1000);
-
 }
-
-
-/* ================================
-   HEART ANIMATION
-================================ */
 
 function hearts(){
 
-    for(let i = 0; i < 35; i++){
+    for(let i=0;i<35;i++){
 
-        let heart = document.createElement("div");
+        let heart=document.createElement("div");
 
-        heart.className = "heart";
+        heart.className="heart";
 
-        heart.innerHTML = [
-            "🤍",
-            "❤️",
-            "✨",
-            "♡"
-        ][Math.floor(Math.random() * 4)];
+        heart.innerHTML=["🤍","❤️","✨","♡"]
+            [Math.floor(Math.random()*4)];
 
-        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.left=Math.random()*100+"vw";
 
-        heart.style.animationDuration =
-            (3 + Math.random() * 3) + "s";
+        heart.style.animationDuration=
+            (3+Math.random()*3)+"s";
 
         document.body.appendChild(heart);
 
         setTimeout(function(){
             heart.remove();
         },6000);
-
     }
-
 }
-
-
-/* ================================
-   CONFETTI
-================================ */
 
 function confetti(){
 
-    const colors = [
+    const colors=[
         "#f7c6c7",
         "#f9e2d2",
         "#ffffff",
         "#f2dede"
     ];
 
-    for(let i = 0; i < 80; i++){
+    for(let i=0;i<80;i++){
 
-        let c = document.createElement("div");
+        let c=document.createElement("div");
 
-        c.className = "confetti";
+        c.className="confetti";
 
-        c.style.left =
-            Math.random() * 100 + "vw";
+        c.style.left=Math.random()*100+"vw";
 
-        c.style.background =
-            colors[Math.floor(Math.random() * colors.length)];
+        c.style.background=
+            colors[Math.floor(Math.random()*colors.length)];
 
-        c.style.animationDuration =
-            (2 + Math.random() * 3) + "s";
+        c.style.animationDuration=
+            (2+Math.random()*3)+"s";
 
         document.body.appendChild(c);
 
         setTimeout(function(){
             c.remove();
         },5000);
-
     }
-
 }
-
-
-/* ================================
-   SECRET MESSAGE
-================================ */
 
 function openSecret(){
 
-    const secretBox =
-        document.getElementById("secretBox");
+    const secretBox=document.getElementById("secretBox");
 
-    secretBox.style.display = "block";
+    secretBox.style.display="block";
 
     secretBox.scrollIntoView({
         behavior:"smooth",
@@ -594,236 +452,135 @@ function openSecret(){
     });
 
     hearts();
-
 }
 
+const reasons=document.getElementById("reasons");
 
-/* ================================
-   100 REASONS
-================================ */
-
-const reasons = document.getElementById("reasons");
-
-const reasonList = [
+const reasonList=[
 
 "Because your smile can brighten even my darkest days.",
-
 "Because you make ordinary moments feel extraordinary.",
-
 "Because you understand me even when I don't say a word.",
-
 "Because your happiness means so much to me.",
-
 "Because you make my heart feel at home.",
-
 "Because every conversation with you feels special.",
-
 "Because you make me want to become a better person.",
-
 "Because your presence makes everything feel more beautiful.",
-
 "Because loving you feels like the easiest thing in the world.",
-
 "Because you are simply, wonderfully you. ♡",
 
 "Because your voice is one of my favorite sounds.",
-
 "Because talking to you can instantly change my mood.",
-
 "Because you make me smile without even trying.",
-
 "Because you make my heart skip a beat.",
-
 "Because you are always somewhere in my thoughts.",
-
 "Because even a simple message from you can make my day.",
-
 "Because you make distance feel a little less painful.",
-
 "Because you make me look forward to tomorrow.",
-
 "Because you make every memory more precious.",
-
 "Because being loved by you feels incredibly special.",
 
 "Because you have a beautiful heart.",
-
 "Because you care in ways that words cannot explain.",
-
 "Because you make me feel understood.",
-
 "Because I can be completely myself around you.",
-
 "Because you never feel like just another person.",
-
 "Because there is something about you that nobody else has.",
-
 "Because you make my world feel warmer.",
-
 "Because you bring peace to my heart.",
-
 "Because you make even silence feel comfortable.",
-
 "Because you are someone I never want to lose.",
 
 "Because your little habits are adorable to me.",
-
 "Because your happiness makes me genuinely happy.",
-
 "Because your sadness makes me want to hold you closer.",
-
 "Because I love hearing about your day.",
-
 "Because I love knowing what makes you smile.",
-
 "Because your dreams matter to me.",
-
 "Because your feelings matter to me.",
-
 "Because your opinion matters to me.",
-
 "Because you matter to me more than you realize.",
-
 "Because you have become such an important part of my life.",
 
 "Because you make my heart feel butterflies.",
-
 "Because you can make me forget everything else for a moment.",
-
 "Because one look from you can say so much.",
-
 "Because your laughter is contagious.",
-
 "Because your cute little reactions make me smile.",
-
 "Because you make every day a little more exciting.",
-
 "Because I never get tired of talking to you.",
-
 "Because somehow, I always want a little more time with you.",
-
 "Because every moment with you becomes a memory worth keeping.",
-
 "Because you make love feel beautiful. ♡",
 
 "Because you inspire me to dream bigger.",
-
 "Because you make me believe in beautiful possibilities.",
-
 "Because you remind me that small things can mean a lot.",
-
 "Because you make me appreciate the present.",
-
 "Because you give me something beautiful to look forward to.",
-
 "Because you make my heart feel alive.",
-
 "Because you make happiness feel closer.",
-
 "Because you make me feel lucky.",
-
 "Because knowing you is one of the sweetest parts of my life.",
-
 "Because meeting you changed my world in the best way.",
 
 "Because I love the way you care about the people you love.",
-
 "Because your kindness makes you even more beautiful.",
-
 "Because your strength inspires me.",
-
 "Because your softness makes my heart melt.",
-
 "Because you have a beautiful way of seeing things.",
-
 "Because you are stronger than you sometimes realize.",
-
 "Because you deserve all the happiness in the world.",
-
 "Because you deserve to be loved endlessly.",
-
 "Because you deserve beautiful moments every single day.",
-
 "Because I want to be there for those moments.",
 
 "Because I want to see you achieve your dreams.",
-
 "Because I want to celebrate your victories with you.",
-
 "Because I want to comfort you on difficult days.",
-
 "Because I want to make you smile when you're sad.",
-
 "Because I want to create countless memories with you.",
-
 "Because I want to hear your stories again and again.",
-
 "Because I want to know every little thing that makes you happy.",
-
 "Because I want to keep discovering new things about you.",
-
 "Because I want to be someone you can always count on.",
-
 "Because having you in my life feels like a blessing.",
 
 "Because you make my heart choose you again and again.",
-
 "Because somehow, you became my favorite person.",
-
 "Because you are the thought I don't mind getting lost in.",
-
 "Because your name has a special place in my heart.",
-
 "Because every love song somehow reminds me of you.",
-
 "Because I catch myself smiling whenever I think of you.",
-
 "Because you make my future feel more beautiful.",
-
 "Because I can't imagine my favorite memories without you in them.",
-
 "Because you make me believe that some people are truly meant to meet.",
-
 "Because you make my heart feel incredibly lucky.",
 
 "Because I love you for who you are, not for who I want you to be.",
-
 "Because I don't need a perfect moment when I have you.",
-
 "Because even the simplest day can become special with you.",
-
 "Because you make my world feel a little brighter.",
-
 "Because you are my favorite notification.",
-
 "Because you are one of the first people I want to tell good news to.",
-
 "Because your happiness will always matter to me.",
-
 "Because no list could ever fully explain why you are special to me.",
-
 "Because after all these reasons, my heart still has a million more.",
-
 "Because you are A Y R A — and that's more than enough reason to love you. ♡"
 
 ];
 
-
-/* CREATE REASONS */
-
 reasonList.forEach(function(reason,index){
 
-    const div = document.createElement("div");
+    const div=document.createElement("div");
 
-    div.className = "reason";
+    div.className="reason";
 
-    div.innerHTML =
-        (index + 1) + ". " + reason;
+    div.innerHTML=(index+1)+". "+reason;
 
     reasons.appendChild(div);
 
 });
-
 
 </script>
 
