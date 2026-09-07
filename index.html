@@ -247,6 +247,22 @@ footer{
     h1{font-size:31px;letter-spacing:5px;}
     .section{padding:65px 15px;}
     .section h2{font-size:27px;}
+
+.more-reasons-btn{
+    margin-top:24px;
+    padding:14px 24px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ff6b9a,#ff3d6e);
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(255,61,110,.25);
+    transition:.25s ease;
+}
+.more-reasons-btn:hover{transform:translateY(-2px) scale(1.02);}
+
     .reasons{padding:15px 18px;max-height:500px;}
     .reason{font-size:14px;}
 }
@@ -301,11 +317,15 @@ footer{
 
 <section class="section">
 
-    <h2>100 Reasons Why Ayra Is Special</h2>
+    <h2>∞ Reasons Why Ayra Is Special</h2>
 
-    <p>Because one reason wasn't enough. ♡</p>
+    <p>Because one reason could never be enough. ♡</p>
 
     <div class="reasons" id="reasons"></div>
+
+    <button class="more-reasons-btn" onclick="addMoreReasons()">
+        Give Me Another Reason 💕
+    </button>
 
 </section>
 
@@ -455,9 +475,10 @@ function openSecret(){
 }
 
 const reasons=document.getElementById("reasons");
+let reasonNumber=0;
 
+/* The original 100 romantic reasons */
 const reasonList=[
-
 "Because your smile can brighten even my darkest days.",
 "Because you make ordinary moments feel extraordinary.",
 "Because you understand me even when I don't say a word.",
@@ -468,7 +489,6 @@ const reasonList=[
 "Because your presence makes everything feel more beautiful.",
 "Because loving you feels like the easiest thing in the world.",
 "Because you are simply, wonderfully you. ♡",
-
 "Because your voice is one of my favorite sounds.",
 "Because talking to you can instantly change my mood.",
 "Because you make me smile without even trying.",
@@ -479,7 +499,6 @@ const reasonList=[
 "Because you make me look forward to tomorrow.",
 "Because you make every memory more precious.",
 "Because being loved by you feels incredibly special.",
-
 "Because you have a beautiful heart.",
 "Because you care in ways that words cannot explain.",
 "Because you make me feel understood.",
@@ -490,7 +509,6 @@ const reasonList=[
 "Because you bring peace to my heart.",
 "Because you make even silence feel comfortable.",
 "Because you are someone I never want to lose.",
-
 "Because your little habits are adorable to me.",
 "Because your happiness makes me genuinely happy.",
 "Because your sadness makes me want to hold you closer.",
@@ -501,7 +519,6 @@ const reasonList=[
 "Because your opinion matters to me.",
 "Because you matter to me more than you realize.",
 "Because you have become such an important part of my life.",
-
 "Because you make my heart feel butterflies.",
 "Because you can make me forget everything else for a moment.",
 "Because one look from you can say so much.",
@@ -512,7 +529,6 @@ const reasonList=[
 "Because somehow, I always want a little more time with you.",
 "Because every moment with you becomes a memory worth keeping.",
 "Because you make love feel beautiful. ♡",
-
 "Because you inspire me to dream bigger.",
 "Because you make me believe in beautiful possibilities.",
 "Because you remind me that small things can mean a lot.",
@@ -523,7 +539,6 @@ const reasonList=[
 "Because you make me feel lucky.",
 "Because knowing you is one of the sweetest parts of my life.",
 "Because meeting you changed my world in the best way.",
-
 "Because I love the way you care about the people you love.",
 "Because your kindness makes you even more beautiful.",
 "Because your strength inspires me.",
@@ -534,7 +549,6 @@ const reasonList=[
 "Because you deserve to be loved endlessly.",
 "Because you deserve beautiful moments every single day.",
 "Because I want to be there for those moments.",
-
 "Because I want to see you achieve your dreams.",
 "Because I want to celebrate your victories with you.",
 "Because I want to comfort you on difficult days.",
@@ -545,7 +559,6 @@ const reasonList=[
 "Because I want to keep discovering new things about you.",
 "Because I want to be someone you can always count on.",
 "Because having you in my life feels like a blessing.",
-
 "Because you make my heart choose you again and again.",
 "Because somehow, you became my favorite person.",
 "Because you are the thought I don't mind getting lost in.",
@@ -556,7 +569,6 @@ const reasonList=[
 "Because I can't imagine my favorite memories without you in them.",
 "Because you make me believe that some people are truly meant to meet.",
 "Because you make my heart feel incredibly lucky.",
-
 "Because I love you for who you are, not for who I want you to be.",
 "Because I don't need a perfect moment when I have you.",
 "Because even the simplest day can become special with you.",
@@ -567,20 +579,41 @@ const reasonList=[
 "Because no list could ever fully explain why you are special to me.",
 "Because after all these reasons, my heart still has a million more.",
 "Because you are A Y R A — and that's more than enough reason to love you. ♡"
-
 ];
 
-reasonList.forEach(function(reason,index){
+/* Extra building blocks create practically unlimited unique romantic reasons. */
+const subjects=[
+"your smile","your voice","your eyes","your laugh","your kindness","your little habits","your cute reactions","your presence","your messages","your heart","your dreams","your honesty","your warmth","your patience","your confidence","your softness","your strength","your beautiful mind","your way of caring","your way of making me smile"
+];
+const effects=[
+"can turn an ordinary moment into something unforgettable","make my whole day feel a little brighter","make my heart feel completely at home","give me another reason to smile","make even the quietest moment feel special","make the world around me feel softer","make me forget how stressful the day was","make every memory with you feel priceless","make me feel incredibly lucky","make tomorrow feel worth looking forward to","make my heart choose you all over again","make distance feel smaller","make even a simple conversation feel magical","make me want to stay a little longer","make everything feel better without even trying"
+];
+const endings=[
+"and I could never get tired of that.","and that's something I will always treasure.","and my heart notices it every single time.","and somehow, I fall for you a little more.","and that is one of my favorite things about you.","and I hope you always know how special that is.","and no number could ever be enough to explain it.","and I would choose that feeling again and again."
+];
 
+function addReason(text){
+    reasonNumber++;
     const div=document.createElement("div");
-
     div.className="reason";
-
-    div.innerHTML=(index+1)+". "+reason;
-
+    div.innerHTML=reasonNumber+". "+text;
     reasons.appendChild(div);
+}
 
-});
+/* Show the original 100 first. */
+reasonList.forEach(addReason);
+
+function addMoreReasons(){
+    const subject=subjects[Math.floor(Math.random()*subjects.length)];
+    const effect=effects[Math.floor(Math.random()*effects.length)];
+    const ending=endings[Math.floor(Math.random()*endings.length)];
+    addReason("Because "+subject+" "+effect+", "+ending.charAt(0).toLowerCase()+ending.slice(1));
+
+    const items=reasons.querySelectorAll(".reason");
+    items[items.length-1].scrollIntoView({behavior:"smooth",block:"center"});
+
+    hearts();
+}
 
 </script>
 
