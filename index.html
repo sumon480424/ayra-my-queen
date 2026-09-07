@@ -3,408 +3,827 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>A Y R A ♡</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#fff8f8,#fdf3f3);
-color:#333;
-overflow-x:hidden;
+    background:linear-gradient(135deg,#fff8f8,#fdf3f3);
+    color:#333;
+    overflow-x:hidden;
 }
 
+/* HERO */
+
 .hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
 .card{
-width:100%;
-max-width:430px;
-background:white;
-border-radius:30px;
-overflow:hidden;
-box-shadow:0 20px 60px rgba(0,0,0,.12);
-text-align:center;
+    width:100%;
+    max-width:430px;
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+    text-align:center;
+    animation:cardAppear 1s ease;
+}
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .card img{
-width:100%;
-height:520px;
-object-fit:cover;
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    display:block;
 }
 
 .content{
-padding:30px;
+    padding:30px;
 }
 
 h1{
-font-size:36px;
-letter-spacing:6px;
-font-weight:300;
+    font-size:36px;
+    letter-spacing:6px;
+    font-weight:300;
 }
 
 .subtitle{
-margin-top:10px;
-color:#888;
+    margin-top:10px;
+    color:#888;
+    font-size:16px;
 }
 
 .quote{
-margin-top:20px;
-line-height:1.8;
-color:#666;
+    margin-top:20px;
+    line-height:1.8;
+    color:#666;
 }
+
+/* BUTTON */
 
 button{
-margin-top:25px;
-padding:15px 25px;
-border:none;
-border-radius:50px;
-background:#111;
-color:white;
-cursor:pointer;
-font-size:15px;
+    margin-top:25px;
+    padding:15px 25px;
+    border:none;
+    border-radius:50px;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s ease;
 }
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+/* COUNTDOWN */
 
 #countdown{
-position:fixed;
-inset:0;
-background:white;
-display:none;
-justify-content:center;
-align-items:center;
-font-size:100px;
-z-index:999;
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.97);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+    z-index:999;
+    font-weight:300;
 }
+
+/* MESSAGE */
 
 #message{
-display:none;
-margin-top:25px;
-padding:20px;
-background:#fafafa;
-border-radius:18px;
-line-height:1.8;
+    display:none;
+    margin-top:25px;
+    padding:20px;
+    background:#fafafa;
+    border-radius:18px;
+    line-height:1.8;
+    animation:messageAppear .8s ease;
 }
 
+@keyframes messageAppear{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* FLOATING HEARTS */
+
 .heart{
-position:fixed;
-bottom:-50px;
-font-size:25px;
-animation:float 5s linear forwards;
-pointer-events:none;
+    position:fixed;
+    bottom:-50px;
+    font-size:25px;
+    animation:float 5s linear forwards;
+    pointer-events:none;
+    z-index:1000;
 }
 
 @keyframes float{
-to{
-transform:translateY(-110vh) rotate(360deg);
-opacity:0;
-}
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
 }
 
+/* CONFETTI */
+
 .confetti{
-position:fixed;
-width:10px;
-height:14px;
-top:-20px;
-animation:fall 4s linear forwards;
+    position:fixed;
+    width:10px;
+    height:14px;
+    top:-20px;
+    animation:fall 4s linear forwards;
+    pointer-events:none;
+    z-index:1000;
 }
 
 @keyframes fall{
-to{
-transform:translateY(110vh) rotate(720deg);
-opacity:0;
-}
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
 }
 
+/* SECTIONS */
+
 .section{
-max-width:700px;
-margin:auto;
-padding:80px 20px;
+    max-width:700px;
+    margin:auto;
+    padding:80px 20px;
 }
 
 .section h2{
-text-align:center;
-font-size:32px;
-margin-bottom:10px;
-font-weight:400;
+    text-align:center;
+    font-size:32px;
+    margin-bottom:10px;
+    font-weight:400;
 }
 
-.section p{
-text-align:center;
-color:#888;
-margin-bottom:30px;
+.section > p{
+    text-align:center;
+    color:#888;
+    margin-bottom:30px;
 }
+
+/* REASONS */
 
 .reasons{
-background:white;
-border-radius:25px;
-padding:20px;
-box-shadow:0 10px 40px rgba(0,0,0,.06);
-max-height:500px;
-overflow:auto;
+    background:white;
+    border-radius:25px;
+    padding:20px 25px;
+    box-shadow:0 10px 40px rgba(0,0,0,.06);
+    max-height:550px;
+    overflow-y:auto;
+    scroll-behavior:smooth;
+}
+
+.reasons::-webkit-scrollbar{
+    width:6px;
+}
+
+.reasons::-webkit-scrollbar-thumb{
+    background:#ddd;
+    border-radius:20px;
 }
 
 .reason{
-padding:14px 0;
-border-bottom:1px solid #eee;
+    padding:16px 5px;
+    border-bottom:1px solid #eee;
+    line-height:1.7;
+    color:#555;
+    transition:.3s ease;
 }
 
+.reason:last-child{
+    border-bottom:none;
+}
+
+.reason:hover{
+    padding-left:10px;
+    color:#222;
+}
+
+/* SECRET */
+
 .secret{
-text-align:center;
+    text-align:center;
 }
 
 .secret button{
-background:white;
-color:#333;
-border:1px solid #ddd;
+    background:white;
+    color:#333;
+    border:1px solid #ddd;
+}
+
+.secret button:hover{
+    background:#fafafa;
 }
 
 #secretBox{
-display:none;
-margin-top:25px;
-background:white;
-padding:30px;
-border-radius:25px;
-box-shadow:0 10px 40px rgba(0,0,0,.06);
-line-height:1.8;
+    display:none;
+    margin-top:25px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 40px rgba(0,0,0,.06);
+    line-height:1.8;
+    animation:messageAppear .8s ease;
 }
 
+/* FOOTER */
+
 footer{
-text-align:center;
-padding:40px;
-color:#aaa;
-font-size:12px;
-letter-spacing:3px;
+    text-align:center;
+    padding:40px;
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+    .hero{
+        padding:15px;
+    }
+
+    .card{
+        border-radius:25px;
+    }
+
+    .card img{
+        height:470px;
+    }
+
+    .content{
+        padding:25px 20px;
+    }
+
+    h1{
+        font-size:31px;
+        letter-spacing:5px;
+    }
+
+    .section{
+        padding:65px 15px;
+    }
+
+    .section h2{
+        font-size:27px;
+    }
+
+    .reasons{
+        padding:15px 18px;
+        max-height:500px;
+    }
+
+    .reason{
+        font-size:14px;
+    }
+
 }
 
 </style>
 </head>
+
 <body>
 
+<!-- MUSIC -->
+
 <audio id="music" loop>
-<source src="music.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+
+<!-- COUNTDOWN -->
 
 <div id="countdown">3</div>
 
+
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="card">
+    <div class="card">
 
-<img src="YOUR_AYRA_PHOTO_HERE.jpg">
+        <img src="YOUR_AYRA_PHOTO_HERE.jpg" alt="Ayra">
 
-<div class="content">
+        <div class="content">
 
-<h1>A Y R A ♡</h1>
+            <h1>A Y R A ♡</h1>
 
-<p class="subtitle">My Queen 👑</p>
+            <p class="subtitle">
+                My Queen 👑
+            </p>
 
-<p class="quote">
-This page has only one purpose...
-to make you smile today. 🤍
-</p>
+            <p class="quote">
+                This page has only one purpose...
+                <br>
+                to make you smile today. 🤍
+            </p>
 
-<button onclick="startSurprise()">
-✨ Tap For Surprise ✨
-</button>
+            <button onclick="startSurprise()">
+                ✨ Tap For Surprise ✨
+            </button>
 
-<div id="message">
 
-<h3>Hey Ayra ✨</h3>
+            <!-- SURPRISE MESSAGE -->
 
-<p>
-Maybe today wasn't perfect.
+            <div id="message">
 
-But I hope this little page reminds you that
-you are special, appreciated and deserve happiness.
+                <h3>Hey Ayra ✨</h3>
 
-<br><br>
+                <p>
+                    Maybe today wasn't perfect.
 
-<b>Smile, Queen 👑🤍</b>
-</p>
+                    <br><br>
 
-</div>
+                    But I hope this little page reminds you that
+                    you are special, appreciated and deserve happiness.
 
-</div>
+                    <br><br>
 
-</div>
+                    <b>Smile, Queen 👑🤍</b>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- 100 REASONS -->
 
 <section class="section">
 
-<h2>100 Reasons Why Ayra Is Special</h2>
+    <h2>
+        100 Reasons Why Ayra Is Special
+    </h2>
 
-<p>Because one reason wasn't enough. ♡</p>
+    <p>
+        Because one reason wasn't enough. ♡
+    </p>
 
-<div class="reasons" id="reasons"></div>
+    <div class="reasons" id="reasons"></div>
 
 </section>
+
+
+<!-- SECRET MESSAGE -->
 
 <section class="section secret">
 
-<h2>One Last Thing 💌</h2>
+    <h2>
+        One Last Thing 💌
+    </h2>
 
-<button onclick="openSecret()">
-Open Secret Message
-</button>
+    <button onclick="openSecret()">
+        Open Secret Message
+    </button>
 
-<div id="secretBox">
+    <div id="secretBox">
 
-<b>A Y R A ♡</b>
+        <b>A Y R A ♡</b>
 
-<br><br>
+        <br><br>
 
-If you're reading this...
+        If you're reading this...
 
-I just want you to know that
-your smile is worth more than you think.
+        <br><br>
 
-<br><br>
+        I just want you to know that
+        your smile is worth more than you think.
 
-No matter what happens,
-never forget how special you are.
+        <br><br>
 
-<br><br>
+        No matter what happens,
+        never forget how special you are.
 
-👑🤍
+        <br><br>
 
-</div>
+        👑🤍
+
+    </div>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
-MADE WITH ♡ FOR AYRA
+    MADE WITH ♡ FOR AYRA
 </footer>
+
 
 <script>
 
+/* ================================
+   SURPRISE
+================================ */
+
 function startSurprise(){
 
-document.getElementById("music").play();
+    const music = document.getElementById("music");
 
-let countdown=document.getElementById("countdown");
+    music.play().catch(function(){
+        console.log("Music could not autoplay.");
+    });
 
-countdown.style.display="flex";
+    const countdown = document.getElementById("countdown");
 
-let count=3;
+    countdown.style.display = "flex";
 
-countdown.innerText=count;
+    let count = 3;
 
-let timer=setInterval(()=>{
+    countdown.innerText = count;
 
-count--;
+    let timer = setInterval(function(){
 
-if(count>0){
+        count--;
 
-countdown.innerText=count;
+        if(count > 0){
 
-}else{
+            countdown.innerText = count;
 
-clearInterval(timer);
+        }else{
 
-countdown.style.display="none";
+            clearInterval(timer);
 
-document.getElementById("message").style.display="block";
+            countdown.style.display = "none";
 
-hearts();
+            document.getElementById("message").style.display = "block";
 
-confetti();
+            hearts();
+
+            confetti();
+
+        }
+
+    },1000);
 
 }
 
-},1000);
 
-}
+/* ================================
+   HEART ANIMATION
+================================ */
 
 function hearts(){
 
-for(let i=0;i<35;i++){
+    for(let i = 0; i < 35; i++){
 
-let heart=document.createElement("div");
+        let heart = document.createElement("div");
 
-heart.className="heart";
+        heart.className = "heart";
 
-heart.innerHTML=["🤍","❤️","✨","♡"][Math.floor(Math.random()*4)];
+        heart.innerHTML = [
+            "🤍",
+            "❤️",
+            "✨",
+            "♡"
+        ][Math.floor(Math.random() * 4)];
 
-heart.style.left=Math.random()*100+"vw";
+        heart.style.left = Math.random() * 100 + "vw";
 
-heart.style.animationDuration=(3+Math.random()*3)+"s";
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
 
-document.body.appendChild(heart);
+        document.body.appendChild(heart);
 
-setTimeout(()=>heart.remove(),6000);
+        setTimeout(function(){
+            heart.remove();
+        },6000);
+
+    }
 
 }
 
-}
+
+/* ================================
+   CONFETTI
+================================ */
 
 function confetti(){
 
-const colors=["#f7c6c7","#f9e2d2","#ffffff","#f2dede"];
+    const colors = [
+        "#f7c6c7",
+        "#f9e2d2",
+        "#ffffff",
+        "#f2dede"
+    ];
 
-for(let i=0;i<80;i++){
+    for(let i = 0; i < 80; i++){
 
-let c=document.createElement("div");
+        let c = document.createElement("div");
 
-c.className="confetti";
+        c.className = "confetti";
 
-c.style.left=Math.random()*100+"vw";
+        c.style.left =
+            Math.random() * 100 + "vw";
 
-c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
 
-c.style.animationDuration=(2+Math.random()*3)+"s";
+        c.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
 
-document.body.appendChild(c);
+        document.body.appendChild(c);
 
-setTimeout(()=>c.remove(),5000);
+        setTimeout(function(){
+            c.remove();
+        },5000);
+
+    }
 
 }
 
-}
+
+/* ================================
+   SECRET MESSAGE
+================================ */
 
 function openSecret(){
 
-document.getElementById("secretBox").style.display="block";
+    const secretBox =
+        document.getElementById("secretBox");
 
-document.getElementById("secretBox")
-.scrollIntoView({behavior:"smooth"});
+    secretBox.style.display = "block";
 
-hearts();
+    secretBox.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
 
-}
-
-const reasons=document.getElementById("reasons");
-
-for(let i=1;i<=100;i++){
-
-let div=document.createElement("div");
-
-div.className="reason";
-
-if(i===100){
-
-div.innerHTML=i+". Because you're A Y R A ♡";
-
-}else{
-
-div.innerHTML=i+". You deserve happiness and beautiful moments.";
+    hearts();
 
 }
 
-reasons.appendChild(div);
 
-}
+/* ================================
+   100 REASONS
+================================ */
+
+const reasons = document.getElementById("reasons");
+
+const reasonList = [
+
+"Because your smile can brighten even my darkest days.",
+
+"Because you make ordinary moments feel extraordinary.",
+
+"Because you understand me even when I don't say a word.",
+
+"Because your happiness means so much to me.",
+
+"Because you make my heart feel at home.",
+
+"Because every conversation with you feels special.",
+
+"Because you make me want to become a better person.",
+
+"Because your presence makes everything feel more beautiful.",
+
+"Because loving you feels like the easiest thing in the world.",
+
+"Because you are simply, wonderfully you. ♡",
+
+"Because your voice is one of my favorite sounds.",
+
+"Because talking to you can instantly change my mood.",
+
+"Because you make me smile without even trying.",
+
+"Because you make my heart skip a beat.",
+
+"Because you are always somewhere in my thoughts.",
+
+"Because even a simple message from you can make my day.",
+
+"Because you make distance feel a little less painful.",
+
+"Because you make me look forward to tomorrow.",
+
+"Because you make every memory more precious.",
+
+"Because being loved by you feels incredibly special.",
+
+"Because you have a beautiful heart.",
+
+"Because you care in ways that words cannot explain.",
+
+"Because you make me feel understood.",
+
+"Because I can be completely myself around you.",
+
+"Because you never feel like just another person.",
+
+"Because there is something about you that nobody else has.",
+
+"Because you make my world feel warmer.",
+
+"Because you bring peace to my heart.",
+
+"Because you make even silence feel comfortable.",
+
+"Because you are someone I never want to lose.",
+
+"Because your little habits are adorable to me.",
+
+"Because your happiness makes me genuinely happy.",
+
+"Because your sadness makes me want to hold you closer.",
+
+"Because I love hearing about your day.",
+
+"Because I love knowing what makes you smile.",
+
+"Because your dreams matter to me.",
+
+"Because your feelings matter to me.",
+
+"Because your opinion matters to me.",
+
+"Because you matter to me more than you realize.",
+
+"Because you have become such an important part of my life.",
+
+"Because you make my heart feel butterflies.",
+
+"Because you can make me forget everything else for a moment.",
+
+"Because one look from you can say so much.",
+
+"Because your laughter is contagious.",
+
+"Because your cute little reactions make me smile.",
+
+"Because you make every day a little more exciting.",
+
+"Because I never get tired of talking to you.",
+
+"Because somehow, I always want a little more time with you.",
+
+"Because every moment with you becomes a memory worth keeping.",
+
+"Because you make love feel beautiful. ♡",
+
+"Because you inspire me to dream bigger.",
+
+"Because you make me believe in beautiful possibilities.",
+
+"Because you remind me that small things can mean a lot.",
+
+"Because you make me appreciate the present.",
+
+"Because you give me something beautiful to look forward to.",
+
+"Because you make my heart feel alive.",
+
+"Because you make happiness feel closer.",
+
+"Because you make me feel lucky.",
+
+"Because knowing you is one of the sweetest parts of my life.",
+
+"Because meeting you changed my world in the best way.",
+
+"Because I love the way you care about the people you love.",
+
+"Because your kindness makes you even more beautiful.",
+
+"Because your strength inspires me.",
+
+"Because your softness makes my heart melt.",
+
+"Because you have a beautiful way of seeing things.",
+
+"Because you are stronger than you sometimes realize.",
+
+"Because you deserve all the happiness in the world.",
+
+"Because you deserve to be loved endlessly.",
+
+"Because you deserve beautiful moments every single day.",
+
+"Because I want to be there for those moments.",
+
+"Because I want to see you achieve your dreams.",
+
+"Because I want to celebrate your victories with you.",
+
+"Because I want to comfort you on difficult days.",
+
+"Because I want to make you smile when you're sad.",
+
+"Because I want to create countless memories with you.",
+
+"Because I want to hear your stories again and again.",
+
+"Because I want to know every little thing that makes you happy.",
+
+"Because I want to keep discovering new things about you.",
+
+"Because I want to be someone you can always count on.",
+
+"Because having you in my life feels like a blessing.",
+
+"Because you make my heart choose you again and again.",
+
+"Because somehow, you became my favorite person.",
+
+"Because you are the thought I don't mind getting lost in.",
+
+"Because your name has a special place in my heart.",
+
+"Because every love song somehow reminds me of you.",
+
+"Because I catch myself smiling whenever I think of you.",
+
+"Because you make my future feel more beautiful.",
+
+"Because I can't imagine my favorite memories without you in them.",
+
+"Because you make me believe that some people are truly meant to meet.",
+
+"Because you make my heart feel incredibly lucky.",
+
+"Because I love you for who you are, not for who I want you to be.",
+
+"Because I don't need a perfect moment when I have you.",
+
+"Because even the simplest day can become special with you.",
+
+"Because you make my world feel a little brighter.",
+
+"Because you are my favorite notification.",
+
+"Because you are one of the first people I want to tell good news to.",
+
+"Because your happiness will always matter to me.",
+
+"Because no list could ever fully explain why you are special to me.",
+
+"Because after all these reasons, my heart still has a million more.",
+
+"Because you are A Y R A — and that's more than enough reason to love you. ♡"
+
+];
+
+
+/* CREATE REASONS */
+
+reasonList.forEach(function(reason,index){
+
+    const div = document.createElement("div");
+
+    div.className = "reason";
+
+    div.innerHTML =
+        (index + 1) + ". " + reason;
+
+    reasons.appendChild(div);
+
+});
+
 
 </script>
 
