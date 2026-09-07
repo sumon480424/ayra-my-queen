@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Y R A ♡</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#fff8f8,#fdf3f3);
+color:#333;
+overflow-x:hidden;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.card{
+width:100%;
+max-width:430px;
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.12);
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:520px;
+object-fit:cover;
+}
+
+.content{
+padding:30px;
+}
+
+h1{
+font-size:36px;
+letter-spacing:6px;
+font-weight:300;
+}
+
+.subtitle{
+margin-top:10px;
+color:#888;
+}
+
+.quote{
+margin-top:20px;
+line-height:1.8;
+color:#666;
+}
+
+button{
+margin-top:25px;
+padding:15px 25px;
+border:none;
+border-radius:50px;
+background:#111;
+color:white;
+cursor:pointer;
+font-size:15px;
+}
+
+#countdown{
+position:fixed;
+inset:0;
+background:white;
+display:none;
+justify-content:center;
+align-items:center;
+font-size:100px;
+z-index:999;
+}
+
+#message{
+display:none;
+margin-top:25px;
+padding:20px;
+background:#fafafa;
+border-radius:18px;
+line-height:1.8;
+}
+
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:25px;
+animation:float 5s linear forwards;
+pointer-events:none;
+}
+
+@keyframes float{
+to{
+transform:translateY(-110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.confetti{
+position:fixed;
+width:10px;
+height:14px;
+top:-20px;
+animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+
+.section{
+max-width:700px;
+margin:auto;
+padding:80px 20px;
+}
+
+.section h2{
+text-align:center;
+font-size:32px;
+margin-bottom:10px;
+font-weight:400;
+}
+
+.section p{
+text-align:center;
+color:#888;
+margin-bottom:30px;
+}
+
+.reasons{
+background:white;
+border-radius:25px;
+padding:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.06);
+max-height:500px;
+overflow:auto;
+}
+
+.reason{
+padding:14px 0;
+border-bottom:1px solid #eee;
+}
+
+.secret{
+text-align:center;
+}
+
+.secret button{
+background:white;
+color:#333;
+border:1px solid #ddd;
+}
+
+#secretBox{
+display:none;
+margin-top:25px;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 40px rgba(0,0,0,.06);
+line-height:1.8;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#aaa;
+font-size:12px;
+letter-spacing:3px;
+}
+
+</style>
+</head>
+<body>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="countdown">3</div>
+
+<section class="hero">
+
+<div class="card">
+
+<img src="YOUR_AYRA_PHOTO_HERE.jpg">
+
+<div class="content">
+
+<h1>A Y R A ♡</h1>
+
+<p class="subtitle">My Queen 👑</p>
+
+<p class="quote">
+This page has only one purpose...
+to make you smile today. 🤍
+</p>
+
+<button onclick="startSurprise()">
+✨ Tap For Surprise ✨
+</button>
+
+<div id="message">
+
+<h3>Hey Ayra ✨</h3>
+
+<p>
+Maybe today wasn't perfect.
+
+But I hope this little page reminds you that
+you are special, appreciated and deserve happiness.
+
+<br><br>
+
+<b>Smile, Queen 👑🤍</b>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>100 Reasons Why Ayra Is Special</h2>
+
+<p>Because one reason wasn't enough. ♡</p>
+
+<div class="reasons" id="reasons"></div>
+
+</section>
+
+<section class="section secret">
+
+<h2>One Last Thing 💌</h2>
+
+<button onclick="openSecret()">
+Open Secret Message
+</button>
+
+<div id="secretBox">
+
+<b>A Y R A ♡</b>
+
+<br><br>
+
+If you're reading this...
+
+I just want you to know that
+your smile is worth more than you think.
+
+<br><br>
+
+No matter what happens,
+never forget how special you are.
+
+<br><br>
+
+👑🤍
+
+</div>
+
+</section>
+
+<footer>
+MADE WITH ♡ FOR AYRA
+</footer>
+
+<script>
+
+function startSurprise(){
+
+document.getElementById("music").play();
+
+let countdown=document.getElementById("countdown");
+
+countdown.style.display="flex";
+
+let count=3;
+
+countdown.innerText=count;
+
+let timer=setInterval(()=>{
+
+count--;
+
+if(count>0){
+
+countdown.innerText=count;
+
+}else{
+
+clearInterval(timer);
+
+countdown.style.display="none";
+
+document.getElementById("message").style.display="block";
+
+hearts();
+
+confetti();
+
+}
+
+},1000);
+
+}
+
+function hearts(){
+
+for(let i=0;i<35;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["🤍","❤️","✨","♡"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+
+}
+
+}
+
+function confetti(){
+
+const colors=["#f7c6c7","#f9e2d2","#ffffff","#f2dede"];
+
+for(let i=0;i<80;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+c.style.animationDuration=(2+Math.random()*3)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),5000);
+
+}
+
+}
+
+function openSecret(){
+
+document.getElementById("secretBox").style.display="block";
+
+document.getElementById("secretBox")
+.scrollIntoView({behavior:"smooth"});
+
+hearts();
+
+}
+
+const reasons=document.getElementById("reasons");
+
+for(let i=1;i<=100;i++){
+
+let div=document.createElement("div");
+
+div.className="reason";
+
+if(i===100){
+
+div.innerHTML=i+". Because you're A Y R A ♡";
+
+}else{
+
+div.innerHTML=i+". You deserve happiness and beautiful moments.";
+
+}
+
+reasons.appendChild(div);
+
+}
+
+</script>
+
+</body>
+</html>
